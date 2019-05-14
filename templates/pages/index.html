@@ -7,7 +7,8 @@
             This page also uses a class based view (CBV)...
         </p>
 
-        <form method="post">
+        <!-- <form id="form_contact" method="post" onsubmit="window.location.reload();" > -->
+        <form id="form_contact" method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit">Submit</button>

@@ -25,10 +25,12 @@ class HomeView(TemplateView):
             email = form.cleaned_data['email']
             msg = form.cleaned_data['msg']
 
-            # reinitialize form... 
-            form = HomeForm()
-            # return redirect('home:home') / not sure what this means yet
+            # reinitialize form...
+            form = HomeForm()  # does not prevent refresh submit, modal works
+            # return redirect('/') # works, but breaks the modal
+            # return redirect('formtest:views') # not sure what this means yet
             # return redirect(self.template_name)
+            # return HttpResponseRedirect(self.template_name)
 
         args = {'form': form, 'name': name, 'email': email, 'msg': msg, 'cjoy': contact_joy}
         return render(request, self.template_name, args)
